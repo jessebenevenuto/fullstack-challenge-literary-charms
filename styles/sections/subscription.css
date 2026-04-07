@@ -1,0 +1,278 @@
+#subscription{
+  padding-block: 6.5rem;
+
+  & h2{
+    margin: 0 auto 3rem;
+    max-width: 13.875rem;
+  }
+}
+
+.cards{
+  display: flex;
+  gap: 1rem;
+
+  padding-bottom: .75rem;
+  overflow: auto;
+  &::-webkit-scrollbar{
+    background: var(--shape-base);
+    height: .375rem;
+  }
+  &::-webkit-scrollbar-thumb{
+    background: radial-gradient(var(--pink-dark) 0%, var(--blue-dark) 100%);
+    border-radius: .375rem;
+  }
+  &::-webkit-scrollbar-thumb:hover{
+    background: radial-gradient(var(--pink-base) 0%, var(--blue-base) 100%);
+  }
+
+  & .card{
+    background-color: var(--shape-base);
+    border-radius: 1.5rem;
+    border: .0625rem solid var(--shape-stroke);
+
+    min-width: 19rem;
+    height: 27.5rem;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    & .top{
+      & h3{
+        font-size: var(--title-xs);
+        margin-bottom: 1.375rem;
+      }
+
+      & strong{
+        font-size: 2.5rem;
+
+        & > span{
+          font-size: var(--title-xs);
+        }
+      }
+
+      & > span{
+        display: block;
+        margin-top: .5rem;
+
+        font-size: var(--body-sm);
+        line-height: 1.4;
+      }
+    }
+
+    & .advantages{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex-grow: 1;
+
+      margin-bottom: .625rem;
+
+      & .advantage{
+        display: flex;
+        align-items: center;
+
+        & > small{
+          font-size: var(--body-xs);
+        }
+      }
+    }
+  }
+
+  & .card:nth-child(1){
+    margin-left: 2rem;
+  }
+
+  & .card:nth-child(2){
+    background-color: var(--shape-hover);
+
+    & > .top > div{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  
+      margin-bottom: 1.375rem;
+      position: relative;
+  
+      & > h3{
+        margin-bottom: 0;
+      }
+  
+      & > .tag{
+        background-color: var(--shape-stroke);
+        border-radius: 3.125rem;
+        padding: .5rem 1.25rem;
+  
+        position: absolute;
+        right: 0;
+  
+        font-size: var(--tag);
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+    }
+  }
+
+  & .card:nth-child(3){
+    margin-right: 2rem;
+  }
+}
+
+@-moz-document url-prefix(){
+  .cards{
+    scrollbar-width: thin;
+    scrollbar-color: var(--shape-stroke) var(--shape-base);
+  }
+}
+
+@media screen and (width >= 1008px) {
+  .cards{
+    justify-content: center;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  #subscription{
+    padding-block: 12.125rem 18.875rem;
+
+    & h2{
+      max-width: 18.375rem;
+      margin-bottom: 3.5rem;
+
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .cards{
+    overflow: initial;
+    padding-top: 5rem;
+    position: relative;
+
+    &:hover{
+      .card:nth-child(1){
+        rotate: -8deg;
+        transform: translate(0%, 13%);
+
+        &::before{
+          rotate: -8deg;
+          left: -12%;
+        }
+      }
+
+      .card:nth-child(2){
+        background-color: var(--shape-base);
+      }
+
+      .card:nth-child(3){
+        rotate: 8deg;
+        transform: translate(0%, 13%);
+        
+        &::after{
+          rotate: 8deg;
+          bottom: -6.5%;
+        }
+      }
+    }
+
+    .card:nth-child(1){
+      transform: translateX(105.25%);
+      transition: transform .3s ease-in-out, rotate .3s ease-in-out, background-color .3s ease-in-out, box-shadow .3s ease-in-out, border-color .3s ease-in-out;
+      position: relative;
+
+      &::before{
+        content: "";
+        display: block;
+        width: 2rem;
+        height: 3.25rem;
+        background: url("../../assets/icons/stars-card-1.svg") no-repeat;
+
+        position: absolute;
+        top: -5%;
+        left: -15%;
+        transition: rotate .3s ease-in-out, left .3s ease-in-out;
+      }
+
+      &:hover{
+        background-color: var(--shape-hover);
+        transform: translateY(11.5%);
+        box-shadow: 0 0 4.125rem rgba(53, 139, 185, 0.1);
+        border-color: transparent;
+        z-index: 10;
+
+        &::before{
+          rotate: -12deg;
+        }
+      }
+    }
+
+    .card:nth-child(2){
+      position: relative;
+      z-index: 1;
+      transition: background-color .3s ease-in-out, transform .3s ease-in-out, box-shadow .3s ease-in-out, border-color .3s ease-in-out;
+
+      &:hover{
+        background-color: var(--shape-hover);
+        transform: translateY(-1.5%);
+        box-shadow: 0 0 4.125rem rgba(53, 139, 185, 0.1);
+        border-color: transparent;
+        z-index: 10;
+      }
+
+      &::before{
+        content: "";
+        display: block;
+        width: 2.8125rem;
+        height: 3.125rem;
+        background: url("../../assets/icons/bunny.svg");
+
+        position: absolute;
+        top: -12%;
+      }
+    }
+
+    .card:nth-child(3){
+      transform: translateX(-105.25%);
+      transition: transform .3s ease-in-out, rotate .3s ease-in-out, background-color .3s ease-in-out, box-shadow .3s ease-in-out, border-color .3s ease-in-out;
+      position: relative;
+
+      &::after{
+        content: "";
+        display: block;
+        width: 3.5rem;
+        height: 1.5rem;
+        background: url("../../assets/icons/stars-card-3.svg") no-repeat;
+
+        position: absolute;
+        bottom: -8%;
+        right: -14.5%;
+        transition: rotate .3s ease-in-out, bottom .3s ease-in-out;
+      }
+
+      &:hover{
+        background-color: var(--shape-hover);
+        transform: translateY(11.5%);
+        box-shadow: 0 0 4.125rem rgba(53, 139, 185, 0.1);
+        border-color: transparent;
+        z-index: 10;
+
+        &::after{
+          rotate: 12deg;
+        }
+      }
+    }
+
+    &::before{
+      content: "";
+      position: absolute;
+      width: 55rem;
+      height: 55rem;
+      left: calc(50% - 55rem/2);
+      top: calc(50% - 55rem/2 - 2.75rem);
+
+      background: var(--shape-base);
+      filter: blur(17rem);
+    }
+  }
+}

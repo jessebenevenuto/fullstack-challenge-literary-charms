@@ -1,0 +1,19 @@
+.header{
+  padding: 1.25rem 1.25rem 0;
+
+  .navigation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .btn{
+      padding-inline: 1.25rem;
+    }
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .header{
+    padding-top: 3.5rem;
+  }
+}

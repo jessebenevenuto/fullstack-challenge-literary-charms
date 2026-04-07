@@ -1,0 +1,150 @@
+#footer-image{
+  background: url("../assets/imgs/footer-image-mobile.png") no-repeat center top / cover;
+  width: 100%;
+  height: 100%;
+}
+
+.footer{
+  width: 100%;
+  height: 25rem;
+  padding: 0 1.25rem 2.375rem;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  & .content{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+}
+
+.footer .content div{
+  & > img{
+    display: block;
+    margin: 0 auto .75rem;
+
+    width: 9.875rem;
+    height: 2.5rem;
+  }
+
+  & .social-links{
+    border-top: .0625rem solid var(--shape-stroke);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .875rem;
+    
+    padding-top: .75rem;
+
+    & li{
+      width: 2.5rem;
+      height: 2.5rem;
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > a{
+        width: 1.5rem;
+        height: 1.5rem;
+        position: relative;
+        z-index: 1;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & svg path{
+          transition: fill 250ms ease-in-out;
+        }
+      }
+
+      &:hover a svg path{
+        fill: var(--text-body);
+      }
+
+      &:after{
+        content: "";
+        display: block;
+        scale: 0;
+
+        background-color: var(--shape-stroke);
+        border-radius: 50%;
+
+        position: absolute;
+        inset: 0;
+        transition: scale 250ms ease-in-out;
+      }
+
+      &:hover::after{
+        scale: 1;
+      }
+    }
+  }
+}
+
+.footer .content .footer-nav{
+  display: flex;
+  gap: 2.5rem;
+  
+  & ul{
+    display: flex;
+    flex-direction: column;
+
+    & .li-title{
+      font-size: var(--title-xs);
+      color: var(--text-body);
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    & li{
+      color: var(--blue-light);
+      font-size: var(--link);
+      font-weight: 500;
+
+      &:nth-child(3){
+        margin-block: 1rem;
+      }
+
+      &:hover{
+        color: var(--text-body);
+      }
+    }
+  }
+}
+
+@media screen and (width >= 630px) {
+  #footer-image{
+    background: url("../assets/imgs/footer-image.png") no-repeat center top / cover;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .footer{
+    padding-bottom: 6.375rem;
+
+    & .content{
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  .footer .content div{
+    & img{
+      width: 16.5rem;
+      height: auto;
+    }
+  }
+
+  .footer .content .footer-nav{
+    display: flex;
+    gap: 3.5rem;
+  }
+}

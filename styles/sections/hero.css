@@ -1,0 +1,236 @@
+.hero{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  
+  &::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    
+    background-color: var(--pink-low);
+    filter: blur(18.75rem);
+    width: 100%;
+    height: 37rem;
+  }
+}
+
+.hero-image{
+  position: relative;
+  z-index: 100;
+
+  &::before{
+    content: "";
+    display: block;
+    background: url("../../assets/imgs/hero-image.png") no-repeat center bottom / cover;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    opacity: 0;
+    animation: Appear 4s ease-in-out forwards;
+  }
+
+  .content{
+    margin-top: 3rem;
+    position: relative;
+
+    h1{
+      width: min(100%, 41rem);
+      margin: 0 auto 1rem;
+
+      opacity: 0;
+      animation: Appear 4s ease-in-out 1s forwards;
+    }
+
+    p{
+      width: min(100%, 31rem);
+      margin-inline: auto;
+      
+      padding-bottom: 12.125rem;
+      font-size: var(--body-lg);
+      line-height: 1.4;
+      
+      opacity: 0;
+      animation: Appear 4s ease-in-out 2s forwards;
+    }
+  }
+}
+
+.hero-animation{
+  min-height: 15.6875rem;
+  max-width: 25.6875rem;
+  
+  margin: 2rem auto 0;
+  padding: 1.75rem 1.25rem;
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .subtitle{
+    margin-inline: auto;
+    font-size: var(--subtitle);
+    line-height: 1.4;
+  }
+
+  img[src*="opened"], img[src*="crystal"]{
+    position: absolute;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  img[src*="opened"]{
+    top: 2rem;
+    right: 4.5rem;
+    rotate: 20deg;
+  }
+
+  img[src*="crystal"]{
+    bottom: 3.25rem;
+    right: 3.25rem;
+  }
+}
+
+@media screen and (width >= 1280px){
+  .hero{
+    &::before{
+      filter: blur(68rem);
+      height: 70rem;
+    }
+  }
+
+  .hero-image{
+    width: 100%;
+
+    .content{
+      margin-top: 10.25rem;
+
+      h1{
+        margin-bottom: 2rem;
+      }
+
+      p{
+        padding-bottom: 29.25rem;
+      }
+    }
+  }
+  
+  .hero-animation{
+    max-width: 75rem;
+    min-height: 25rem;
+  
+    margin-top: 6rem;
+    padding-inline: 2rem;
+  
+    & img[src*="opened"]{
+      width: 4.5rem;
+      height: 4.5rem;
+  
+      top: 4rem;
+      left: 45.5%;
+
+      scale: 0;
+      transition: scale .3s ease-in-out, rotate 250ms ease-in-out;
+      &:hover{
+        rotate: 32deg;
+      }
+    }
+  
+    & .subtitle{
+      line-height: 2;
+      & > .first-span{
+        opacity: .5;
+        transition: opacity .3s ease-in-out;
+
+        & > strong{
+          transition: color .3s ease-in-out;
+        }
+      }
+
+      & > .second-span{
+        opacity: .5;
+        transition: opacity .3s ease-in-out;
+
+        & > strong{
+          transition: color .3s ease-in-out;
+        }
+      }
+
+      & > .third-span{
+        opacity: .5;
+        transition: opacity .3s ease-in-out;
+
+        & > strong{
+          transition: color .3s ease-in-out;
+        }
+      }
+    }
+  
+    & img[src*="crystal"]{
+      width: 4.5rem;
+      height: 4.5rem;
+  
+      bottom: 4.25rem;
+      right: 1rem;
+      
+      scale: 0;
+      rotate: -30deg;
+      transition: scale .3s ease-in-out;
+      &:hover{
+        rotate: -14deg;
+      }
+    }
+
+    &:hover{
+      & img[src*="opened"]{
+        scale: 1;
+      }
+
+      & .subtitle{
+        & .first-span{
+          opacity: 1;
+
+          & > strong{
+            color: var(--blue-light);
+          }
+        }
+
+        & .second-span{
+          opacity: 1;
+          transition: opacity .3s ease-in-out .5s;
+
+          & > strong{
+            color: var(--blue-light);
+            transition: color .3s ease-in-out .5s;
+          }
+        }
+
+        & .third-span{
+          opacity: 1;
+          transition: opacity .3s ease-in-out 1s;
+
+          & > strong{
+            color: var(--blue-light);
+            transition: color .3s ease-in-out 1s;
+          }
+        }
+      }
+
+      & img[src*="crystal"]{
+        scale: 1;
+        transition: scale .3s ease-in-out 1s, rotate 250ms ease-in-out;
+      }
+    }
+  }
+}
+
+@keyframes Appear{
+  to{
+    opacity: 1;
+  }
+}
